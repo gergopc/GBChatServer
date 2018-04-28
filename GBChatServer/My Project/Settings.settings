@@ -8,5 +8,11 @@
     <Setting Name="username" Type="System.String" Scope="User">
       <Value Profile="(Default)">gergopc</Value>
     </Setting>
+    <Setting Name="dbfile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\AndrásGergely\Documents\database\database.accdb</Value>
+    </Setting>
+    <Setting Name="LogFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\AndrásGergely\Desktop\serverlog</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

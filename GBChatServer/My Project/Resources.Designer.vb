@@ -70,11 +70,56 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Tallózás.
+        '''</summary>
+        Friend ReadOnly Property Browse() As String
+            Get
+                Return ResourceManager.GetString("Browse", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Mégse.
         '''</summary>
         Friend ReadOnly Property Cancel() As String
             Get
                 Return ResourceManager.GetString("Cancel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Napló helye.
+        '''</summary>
+        Friend ReadOnly Property LogLoc() As String
+            Get
+                Return ResourceManager.GetString("LogLoc", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Tud beszélni.
+        '''</summary>
+        Friend ReadOnly Property muted() As String
+            Get
+                Return ResourceManager.GetString("muted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Új becenév.
+        '''</summary>
+        Friend ReadOnly Property nnlabel() As String
+            Get
+                Return ResourceManager.GetString("nnlabel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Új jelszó.
+        '''</summary>
+        Friend ReadOnly Property nplabel() As String
+            Get
+                Return ResourceManager.GetString("nplabel", resourceCulture)
             End Get
         End Property
         
@@ -88,6 +133,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Adatbázis helye.
+        '''</summary>
+        Friend ReadOnly Property SelectDatabase() As String
+            Get
+                Return ResourceManager.GetString("SelectDatabase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Send Broadcast.
+        '''</summary>
+        Friend ReadOnly Property SendBroadcast() As String
+            Get
+                Return ResourceManager.GetString("SendBroadcast", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to A szerver portja.
         '''</summary>
         Friend ReadOnly Property ServerPort() As String
@@ -97,11 +160,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Beállít.
+        '''</summary>
+        Friend ReadOnly Property setdata() As String
+            Get
+                Return ResourceManager.GetString("setdata", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Felhasználónév.
         '''</summary>
         Friend ReadOnly Property Username() As String
             Get
                 Return ResourceManager.GetString("Username", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Felhasználók.
+        '''</summary>
+        Friend ReadOnly Property userslabel() As String
+            Get
+                Return ResourceManager.GetString("userslabel", resourceCulture)
             End Get
         End Property
     End Module

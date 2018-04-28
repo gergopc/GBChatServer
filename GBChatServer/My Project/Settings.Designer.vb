@@ -77,6 +77,30 @@ Namespace My
                 Me("username") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("C:\Users\AndrásGergely\Documents\database\database.accdb")>  _
+        Public Property dbfile() As String
+            Get
+                Return CType(Me("dbfile"),String)
+            End Get
+            Set
+                Me("dbfile") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("C:\Users\AndrásGergely\Desktop\serverlog")>  _
+        Public Property LogFile() As String
+            Get
+                Return CType(Me("LogFile"),String)
+            End Get
+            Set
+                Me("LogFile") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

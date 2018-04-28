@@ -120,16 +120,43 @@
   <data name="Apply" xml:space="preserve">
     <value>Alkalmaz</value>
   </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Tallózás</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Mégse</value>
+  </data>
+  <data name="LogLoc" xml:space="preserve">
+    <value>Napló helye</value>
+  </data>
+  <data name="muted" xml:space="preserve">
+    <value>Tud beszélni</value>
+  </data>
+  <data name="nnlabel" xml:space="preserve">
+    <value>Új becenév</value>
+  </data>
+  <data name="nplabel" xml:space="preserve">
+    <value>Új jelszó</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="SelectDatabase" xml:space="preserve">
+    <value>Adatbázis helye</value>
+  </data>
+  <data name="SendBroadcast" xml:space="preserve">
+    <value>Send Broadcast</value>
+  </data>
   <data name="ServerPort" xml:space="preserve">
     <value>A szerver portja</value>
   </data>
+  <data name="setdata" xml:space="preserve">
+    <value>Beállít</value>
+  </data>
   <data name="Username" xml:space="preserve">
     <value>Felhasználónév</value>
+  </data>
+  <data name="userslabel" xml:space="preserve">
+    <value>Felhasználók</value>
   </data>
 </root>

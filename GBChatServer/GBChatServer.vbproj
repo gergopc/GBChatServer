@@ -100,6 +100,12 @@
     <Compile Include="Settings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserManager.Designer.vb">
+      <DependentUpon>UserManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManager.resx">
+      <DependentUpon>UserManager.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

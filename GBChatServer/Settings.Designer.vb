@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Settings
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,15 +20,21 @@ Partial Class Settings
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PortSetter = New System.Windows.Forms.NumericUpDown()
         Me.btnApply = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnOK = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.sdb = New System.Windows.Forms.Label()
+        Me.txtDB = New System.Windows.Forms.TextBox()
+        Me.browseDataBase = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.logloc = New System.Windows.Forms.Label()
+        Me.browseLog = New System.Windows.Forms.Button()
+        Me.txtLog = New System.Windows.Forms.TextBox()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
         CType(Me.PortSetter, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,6 +60,7 @@ Partial Class Settings
         'btnApply
         '
         Me.btnApply.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnApply.Enabled = False
         Me.btnApply.Location = New System.Drawing.Point(197, 226)
         Me.btnApply.Name = "btnApply"
         Me.btnApply.Size = New System.Drawing.Size(75, 23)
@@ -82,23 +89,62 @@ Partial Class Settings
         Me.btnOK.Text = "OK"
         Me.btnOK.UseVisualStyleBackColor = True
         '
-        'Label2
+        'sdb
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 82)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 13)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Username:"
+        Me.sdb.AutoSize = True
+        Me.sdb.Location = New System.Drawing.Point(12, 91)
+        Me.sdb.Name = "sdb"
+        Me.sdb.Size = New System.Drawing.Size(75, 13)
+        Me.sdb.TabIndex = 5
+        Me.sdb.Text = "Database File:"
         '
-        'txtUsername
+        'txtDB
         '
-        Me.txtUsername.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUsername.Location = New System.Drawing.Point(91, 79)
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(100, 20)
-        Me.txtUsername.TabIndex = 6
+        Me.txtDB.Location = New System.Drawing.Point(12, 116)
+        Me.txtDB.Name = "txtDB"
+        Me.txtDB.Size = New System.Drawing.Size(179, 20)
+        Me.txtDB.TabIndex = 6
+        '
+        'browseDataBase
+        '
+        Me.browseDataBase.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.browseDataBase.Location = New System.Drawing.Point(197, 114)
+        Me.browseDataBase.Name = "browseDataBase"
+        Me.browseDataBase.Size = New System.Drawing.Size(75, 23)
+        Me.browseDataBase.TabIndex = 7
+        Me.browseDataBase.Text = "Browse"
+        Me.browseDataBase.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "database.mdb"
+        Me.OpenFileDialog1.Filter = "Access Database Files (*.mdb, *.accdb)|*.mdb;*.accdb"
+        '
+        'logloc
+        '
+        Me.logloc.AutoSize = True
+        Me.logloc.Location = New System.Drawing.Point(12, 148)
+        Me.logloc.Name = "logloc"
+        Me.logloc.Size = New System.Drawing.Size(72, 13)
+        Me.logloc.TabIndex = 8
+        Me.logloc.Text = "Log Location:"
+        '
+        'browseLog
+        '
+        Me.browseLog.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.browseLog.Location = New System.Drawing.Point(197, 168)
+        Me.browseLog.Name = "browseLog"
+        Me.browseLog.Size = New System.Drawing.Size(75, 23)
+        Me.browseLog.TabIndex = 10
+        Me.browseLog.Text = "Browse"
+        Me.browseLog.UseVisualStyleBackColor = True
+        '
+        'txtLog
+        '
+        Me.txtLog.Location = New System.Drawing.Point(12, 170)
+        Me.txtLog.Name = "txtLog"
+        Me.txtLog.Size = New System.Drawing.Size(179, 20)
+        Me.txtLog.TabIndex = 9
         '
         'Settings
         '
@@ -106,8 +152,12 @@ Partial Class Settings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
         Me.ClientSize = New System.Drawing.Size(284, 261)
-        Me.Controls.Add(Me.txtUsername)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.browseLog)
+        Me.Controls.Add(Me.txtLog)
+        Me.Controls.Add(Me.logloc)
+        Me.Controls.Add(Me.browseDataBase)
+        Me.Controls.Add(Me.txtDB)
+        Me.Controls.Add(Me.sdb)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnApply)
@@ -127,6 +177,12 @@ Partial Class Settings
     Friend WithEvents btnApply As Button
     Friend WithEvents btnCancel As Button
     Friend WithEvents btnOK As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents txtUsername As TextBox
+    Friend WithEvents sdb As Label
+    Friend WithEvents txtDB As TextBox
+    Friend WithEvents browseDataBase As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents logloc As Label
+    Friend WithEvents browseLog As Button
+    Friend WithEvents txtLog As TextBox
+    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
 End Class
