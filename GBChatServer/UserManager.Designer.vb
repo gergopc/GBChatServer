@@ -76,6 +76,7 @@ Partial Class UserManager
         Me.txtNP.Name = "txtNP"
         Me.txtNP.Size = New System.Drawing.Size(100, 20)
         Me.txtNP.TabIndex = 6
+        Me.txtNP.UseSystemPasswordChar = True
         '
         'setBtn
         '

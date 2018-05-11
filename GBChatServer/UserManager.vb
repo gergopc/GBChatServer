@@ -15,13 +15,9 @@ Public Class UserManager
         dbHandler = New DatabaseHandler
         GenerateConnectionString()
         ListBox1.Items.AddRange(dbHandler.LoadUsers)
+        ListBox1.SelectedItem = ListBox1.Items(0)
     End Sub
 
-
-
-    Private Sub GenerateConnectionString()
-        connstr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + My.Settings.dbfile + "; Persist Security Info=False;"
-    End Sub
     Private Sub InitializeStrings()
         usersLabel.Text = My.Resources.userslabel + ":"
         MutedChk.Text = My.Resources.muted
@@ -30,47 +26,10 @@ Public Class UserManager
         nplabel.Text = My.Resources.nplabel + ":"
 
     End Sub
-    Private Sub SetMuted()
-        Try
-            cn = New OleDbConnection(connstr)
-            cn.Open()
-            str = "UPDATE UserData
-            SET canspeak=" + MutedChk.Checked.ToString + "
-            WHERE username='" + ListBox1.SelectedItem + "';"
-            cmd = New OleDbCommand(str, cn)
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-    Private Sub SetNewPassword()
-        Try
-            cn = New OleDbConnection(connstr)
-            cn.Open()
-            str = "UPDATE UserData
-            SET password=" + txtNP.Text + "
-            WHERE username='" + ListBox1.SelectedItem + "';"
-            cmd = New OleDbCommand(str, cn)
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-    Private Sub SetNickname()
-        Try
-            cn = New OleDbConnection(connstr)
-            cn.Open()
-            str = "UPDATE UserData
-            SET nickname='" + txtNN.Text + "'
-            WHERE username='" + ListBox1.SelectedItem + "';"
-            cmd = New OleDbCommand(str, cn)
-            cmd.ExecuteNonQuery()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
+
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         LoadUserData()
+        txtNP.Clear()
     End Sub
 
     Private Sub LoadUserData()
@@ -91,11 +50,12 @@ Public Class UserManager
     End Sub
 
     Private Sub setBtn_Click(sender As Object, e As EventArgs) Handles setBtn.Click
-        SetMuted()
+        dbHandler.SetUserProperty(ListBox1.SelectedItem, "canspeak", MutedChk.Checked.ToString)
         If Not txtNP.Text = Nothing Then
-            SetNewPassword()
+            dbHandler.SetUserProperty(ListBox1.SelectedItem, "lpassword", txtNP.Text)
         End If
-        SetNickname()
+        dbHandler.SetUserProperty(ListBox1.SelectedItem, "nickname", txtNN.Text)
+        'MsgBox(ListBox1.SelectedItem + " nickname " + txtNN.Text)
         setBtn.Enabled = False
     End Sub
 End Class

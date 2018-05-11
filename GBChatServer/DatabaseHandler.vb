@@ -37,6 +37,25 @@ Public Class DatabaseHandler
         End Try
 
     End Function
+    Friend Sub SetUserProperty(username As String, prop As String, value As String)
+        Try
+            cn = New OleDbConnection(connstr)
+            cn.Open()
+            If value = "True" Or value = "False" Then
+                str = "UPDATE UserData
+            SET " + prop + "=" + value.ToString + "
+            WHERE username='" + username + "';"
+            Else
+                str = "UPDATE UserData
+            SET " + prop + "='" + value.ToString + "'
+            WHERE username='" + username + "';"
+            End If
+            cmd = New OleDbCommand(str, cn)
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
     Friend Function LoadUsers() As String()
         Dim users() As String
         Try
