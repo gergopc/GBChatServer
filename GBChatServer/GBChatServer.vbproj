@@ -71,6 +71,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseHandler.vb" />
+    <Compile Include="Extensions.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

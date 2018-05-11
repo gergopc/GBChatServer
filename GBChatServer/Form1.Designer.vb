@@ -22,15 +22,17 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UserManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.sendBroadcast = New System.Windows.Forms.Button()
         Me.TextBox = New System.Windows.Forms.TextBox()
-        Me.UserManagerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -55,6 +57,12 @@ Partial Class Form1
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
         Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SettingsToolStripMenuItem.Text = "Settings"
+        '
+        'UserManagerToolStripMenuItem
+        '
+        Me.UserManagerToolStripMenuItem.Name = "UserManagerToolStripMenuItem"
+        Me.UserManagerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UserManagerToolStripMenuItem.Text = "User Manager"
         '
         'SaveLogToolStripMenuItem
         '
@@ -96,11 +104,9 @@ Partial Class Form1
         Me.TextBox.Size = New System.Drawing.Size(536, 20)
         Me.TextBox.TabIndex = 3
         '
-        'UserManagerToolStripMenuItem
+        'Timer1
         '
-        Me.UserManagerToolStripMenuItem.Name = "UserManagerToolStripMenuItem"
-        Me.UserManagerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.UserManagerToolStripMenuItem.Text = "User Manager"
+        Me.Timer1.Enabled = True
         '
         'Form1
         '
@@ -130,4 +136,5 @@ Partial Class Form1
     Friend WithEvents TextBox As TextBox
     Friend WithEvents SaveLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UserManagerToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Timer1 As Timer
 End Class

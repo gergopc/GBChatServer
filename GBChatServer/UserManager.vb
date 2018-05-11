@@ -7,41 +7,17 @@ Public Class UserManager
     Dim str As String
     Dim cmd As OleDbCommand
     Dim dr As OleDbDataReader
+
+    Dim dbHandler As DatabaseHandler
+
     Private Sub UserManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitializeStrings()
+        dbHandler = New DatabaseHandler
         GenerateConnectionString()
-        LoadUsers()
+        ListBox1.Items.AddRange(dbHandler.LoadUsers)
     End Sub
-    Private Sub LoadUserData()
-        Try
-            cn = New OleDbConnection(connstr)
-            cn.Open()
-            str = "SELECT * from UserData WHERE username='" + ListBox1.SelectedItem + "'"
-            cmd = New OleDbCommand(str, cn)
-            dr = cmd.ExecuteReader
-            While dr.Read
-                MutedChk.Checked = dr("canspeak")
-                txtNN.Text = dr("nickname")
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-    Private Sub LoadUsers()
-        Try
-            cn = New OleDbConnection(connstr)
-            cn.Open()
-            str = "SELECT username FROM UserData"
-            cmd = New OleDbCommand(str, cn)
-            dr = cmd.ExecuteReader
-            While (dr.Read)
-                ListBox1.Items.Add(dr("username").ToString)
-            End While
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
 
-    End Sub
+
 
     Private Sub GenerateConnectionString()
         connstr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + My.Settings.dbfile + "; Persist Security Info=False;"
@@ -95,6 +71,11 @@ Public Class UserManager
     End Sub
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         LoadUserData()
+    End Sub
+
+    Private Sub LoadUserData()
+        MutedChk.Checked = dbHandler.LoadUserData(ListBox1.SelectedItem).muted
+        txtNN.Text = dbHandler.LoadUserData(ListBox1.SelectedItem).nickname
     End Sub
 
     Private Sub MutedChk_CheckedChanged(sender As Object, e As EventArgs) Handles MutedChk.CheckedChanged

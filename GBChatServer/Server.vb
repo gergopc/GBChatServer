@@ -1,36 +1,27 @@
-﻿'Imports System.Net
-'Imports System.Net.Sockets
+﻿Public Class Server
 
-'Public Class Server
+    Dim serverlog As String
 
-'    Dim TCPServer As Socket
-'    Dim TCPListenerz As TcpListener
+    Friend Sub New()
 
-'    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    End Sub
+    Friend Sub Log(v As String, Optional title As String = "Server")
+        serverlog += Date.Now + title + ": " + v + "\n"
+    End Sub
+    Friend Sub SaveLog()
+        Try
+            Dim file As String = My.Settings.LogFile + "\log - " + Date.Now.ToString("yyyy-MM-dd HH-mm") + ".txt"
+            MsgBox(file)
+            Dim fs As IO.FileStream = IO.File.Create(file)
+            Dim log As Byte() = New Text.UTF8Encoding(True).GetBytes(serverlog)
+            fs.Write(log, 0, log.Length)
+            fs.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Friend Function GetLog()
+        Return serverlog
+    End Function
+End Class
 
-'        Dim sendbytes() As Byte = System.Text.Encoding.ASCII.GetBytes(TextBox2.Text)
-'        TCPServer.Send(sendbytes)
-
-'    End Sub
-
-'    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-
-'        TCPListenerz = New TcpListener(IPAddress.Any, 1000)
-'        TCPListenerz.Start()
-'        TCPServer = TCPListenerz.AcceptSocket()
-'        TCPServer.Blocking = False
-'        Timer1.Enabled = True
-
-'    End Sub
-
-'    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-
-'        Try
-'            Dim rcvbytes(TCPServer.ReceiveBufferSize) As Byte
-'            TCPServer.Receive(rcvbytes)
-'            TextBox3.Text = System.Text.Encoding.ASCII.GetString(rcvbytes)
-'        Catch ex As Exception
-'        End Try
-
-'    End Sub
-'End Class

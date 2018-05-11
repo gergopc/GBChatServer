@@ -22,6 +22,7 @@
         My.Settings.dbfile = txtDB.Text
         My.Settings.port = PortSetter.Value
         My.Settings.LogFile = txtLog.Text
+        My.Settings.Save()
     End Sub
     'Events
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
