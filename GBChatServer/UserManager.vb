@@ -13,7 +13,6 @@ Public Class UserManager
     Private Sub UserManager_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitializeStrings()
         dbHandler = New DatabaseHandler
-        GenerateConnectionString()
         ListBox1.Items.AddRange(dbHandler.LoadUsers)
         ListBox1.SelectedItem = ListBox1.Items(0)
     End Sub
